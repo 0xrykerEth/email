@@ -1,0 +1,72 @@
+.compose {
+  width: 90%;
+  max-width: 1200px;
+
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 90vh;
+}
+
+.compose input {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 14px 16px;
+  font-size: 14px;
+  outline: none;
+}
+
+.compose input::placeholder {
+  color: #777;
+}
+
+.compose .ql-toolbar {
+  border: none !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  
+}
+
+.compose .ql-container {
+  border: none !important;
+  flex: 1;
+  font-size: 15px;
+}
+
+.compose .ql-editor {
+  min-height: 450px;
+  padding: 20px;
+}
+
+.compose button {
+  margin: 12px;
+  width: 120px;
+  height: 42px;
+  border: none;
+  border-radius: 24px;
+  background: #1a73e8;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.send-btn{
+    margin-top: 200px;
+}
+
+.compose button:hover {
+  background: #1765cc;
+}
+
+.editor-wrapper {
+  flex: 1;
+}
+
+.mail-footer {
+  padding: 12px;
+  border-top: 1px solid #ddd;
+}

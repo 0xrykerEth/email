@@ -50,9 +50,11 @@ const Auth = () => {
             }
             
             console.log(data)
+            localStorage.setItem('userId', data.localId)
+            localStorage.setItem('email', data.email)
             dispatch(AuthAction.loginStatus())
             console.log('User has successfully signed up')
-            navigation('/home')
+            navigation('/Home')
         }catch(err){
             console.log(err)
         }finally{
