@@ -16,6 +16,18 @@ function Mailbox() {
     fetchSent();
   }, []);
 
+  useEffect(() => {
+    fetchInbox();
+    fetchSent();
+
+    const interval = setInterval(() => {
+        fetchInbox();
+        fetchSent();
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const fetchInbox = async () => {
     try {
       const response = await fetch(
