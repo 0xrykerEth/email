@@ -9,6 +9,7 @@ function Mailbox() {
 
   const currentUser = localStorage.getItem("email");
   const userKey = currentUser.replace(/\./g, ",");
+  const sentKey = currentUser.replace(/\./g, ",");
 
   useEffect(() => {
     fetchInbox();
@@ -37,6 +38,36 @@ function Mailbox() {
       console.log(err);
     }
   };
+
+  const deleteMail = async(mailId) => {
+        
+    try{
+         await fetch(`https://login-signup-c5f9f-default-rtdb.asia-southeast1.firebasedatabase.app/user/${userKey}/sent/${mailId}.json`,{
+        method: "DELETE",
+      }
+    );
+
+    fetchInbox();
+        
+    }catch(error){
+        console.log(error)
+    }
+  }
+
+  const deleteoutBox = async(mailId) => {
+        
+    try{
+         await fetch(`https://login-signup-c5f9f-default-rtdb.asia-southeast1.firebasedatabase.app/user/${sentKey}/sent/${mailId}.json`,{
+        method: "DELETE",
+      }
+    );
+
+    fetchSent();
+        
+    }catch(error){
+        console.log(error)
+    }
+  }
 
   const fetchSent = async () => {
     try {
@@ -110,7 +141,7 @@ function Mailbox() {
         >
           Sent
         </div>
-        <Link className="mail-link">
+        <Link to={'/Home'} className="mail-link">
             ✉ Compose
         </Link>
       </aside>
@@ -140,6 +171,7 @@ function Mailbox() {
                     __html: mail.body,
                   }}
                 />
+                <button onClick={() => deleteMail(mail.id)}>Delete</button>
               </div>
             ))}
           </>
@@ -173,6 +205,9 @@ function Mailbox() {
                     __html: mail.body,
                   }}
                 />
+                <div>
+                    <button onClick={() => deleteoutBox(mail.id)}>Delete</button>
+                </div>
               </div>
             ))}
           </>

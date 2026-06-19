@@ -25,9 +25,9 @@ const Auth = () => {
         }
 
         if(authStatus === false){
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='
+             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='
         }else{
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='
+             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='
         }
         console.log('authStatus:', authStatus);
         
